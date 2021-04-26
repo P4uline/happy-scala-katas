@@ -17,8 +17,10 @@ class FizzBuzzSpec extends AsyncFlatSpec with Matchers {
   }
 
   it should "return fizzbuzz when the parameter is a multiple of 3 and 5" in {
-    val multiplesOf5 = for (n <- intRange) yield 3 * 5 * n
-    forAll(multiplesOf5) { (n) => FizzBuzz.runWith(n) should be("fizzbuzz") }
+    val multiplesOf3And5 = for (n <- intRange) yield 3 * 5 * n
+    forAll(multiplesOf3And5) { (n) =>
+      FizzBuzz.runWith(n) should be("fizzbuzz")
+    }
   }
 
   private def intRange: List[Int] = (-1000 to 1000).toList
